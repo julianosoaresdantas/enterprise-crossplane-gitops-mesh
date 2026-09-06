@@ -24,3 +24,17 @@ kubectl get applications -n argocd
 kubectl get pods -n istio-system
 kubectl get pods -n keycloak
 ```
+---
+
+## 📅 Fase 3: Validação de Saúde dos Controladores & Infraestrutura
+**Phase 3: Controller & Infrastructure Health Validation**
+
+**Objetivo / Objective:** 
+Garantir que todos os componentes de plataforma (Istio, Keycloak e Crossplane) foram provisionados com sucesso via GitOps e estão prontos para a camada de segurança Zero Trust.
+*Ensure all platform components (Istio, Keycloak, and Crossplane) were successfully provisioned via GitOps and are ready for the Zero Trust security layer.*
+
+### 🎯 Resultados da Inspecção / Inspection Results:
+- **Istio Base:** Operational in `istio-system` namespace.
+- **Keycloak IdP:** Running in `keycloak` namespace.
+- **Crossplane Control Plane:** Active in `crossplane-system` namespace.
+- **ArgoCD App of Apps:** All applications reporting `Synced` and `Healthy` states.
