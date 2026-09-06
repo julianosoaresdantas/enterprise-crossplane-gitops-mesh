@@ -50,3 +50,11 @@ Estabelecer validação criptográfica de tokens JWT emitidos pelo Keycloak (`Re
 ### 🛠️ Manifestos Aplicados / Applied Manifests:
 - **RequestAuthentication:** `jwt-keycloak-auth` configurado com JWKS no endpoint local do Keycloak (`/realms/master/protocol/openid-connect/certs`).
 - **AuthorizationPolicy:** `require-jwt-token` em modo `ALLOW` vinculando `requestPrincipals` para o realm `master`.
+---
+
+## 🧪 Validação Zero Trust: Rejeição Sem JWT (HTTP 401 Unauthorized)
+**Zero Trust Validation: Missing JWT Rejection (HTTP 401 Unauthorized)**
+
+**Resultado do Teste / Test Result:** 
+A requisição efetuada via `curl` sem o token de autorização JWT para o `httpbin-service` foi interceptada e rejeitada com o payload de 19 bytes (`Jwt is missing`) pelo Envoy Sidecar do Istio.
+*The request issued via `curl` without the JWT authorization token to `httpbin-service` was intercepted and rejected with a 19-byte payload (`Jwt is missing`) by Istio's Envoy Sidecar.*
