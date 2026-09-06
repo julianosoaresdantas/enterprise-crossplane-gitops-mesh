@@ -38,3 +38,15 @@ Garantir que todos os componentes de plataforma (Istio, Keycloak e Crossplane) f
 - **Keycloak IdP:** Running in `keycloak` namespace.
 - **Crossplane Control Plane:** Active in `crossplane-system` namespace.
 - **ArgoCD App of Apps:** All applications reporting `Synced` and `Healthy` states.
+---
+
+## 🔒 Fase 10: Implementação de Políticas Istio JWT Zero Trust
+**Phase 10: Istio JWT Zero Trust Policy Enforcement**
+
+**Objetivo / Objective:** 
+Estabelecer validação criptográfica de tokens JWT emitidos pelo Keycloak (`RequestAuthentication`) e negar requisições não autenticadas ao `httpbin-service` (`AuthorizationPolicy`).
+*Establish cryptographic validation for Keycloak-issued JWTs (`RequestAuthentication`) and reject unauthenticated traffic to `httpbin-service` (`AuthorizationPolicy`).*
+
+### 🛠️ Manifestos Aplicados / Applied Manifests:
+- **RequestAuthentication:** `jwt-keycloak-auth` configurado com JWKS no endpoint local do Keycloak (`/realms/master/protocol/openid-connect/certs`).
+- **AuthorizationPolicy:** `require-jwt-token` em modo `ALLOW` vinculando `requestPrincipals` para o realm `master`.
