@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak-idp
+  namespace: keycloak
+  labels:
+    app: keycloak-idp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keycloak-idp
+  template:
+    metadata:
+      labels:
+        app: keycloak-idp
+    spec:
+      containers:
+      - name: keycloak
+        image: quay.io/keycloak/keycloak:22.0.1
+        args: ["start-dev"]
+        env:
+        - name: KEYCLOAK_ADMIN
+          value: "admin"
+        - name: KEYCLOAK_ADMIN_PASSWORD
+          value: "admin"
+        ports:
+        - containerPort: 8080
+          name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak-idp
+  namespace: keycloak
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+    name: http
+  selector:
+    app: keycloak-idp
