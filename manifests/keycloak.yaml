@@ -1,10 +1,10 @@
 apiVersion: apps/v1
+labels:
+  app: keycloak-idp
 kind: Deployment
 metadata:
   name: keycloak-idp
   namespace: keycloak
-  labels:
-    app: keycloak-idp
 spec:
   replicas: 1
   selector:
