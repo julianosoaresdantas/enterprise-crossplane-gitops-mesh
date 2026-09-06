@@ -58,3 +58,14 @@ Estabelecer validação criptográfica de tokens JWT emitidos pelo Keycloak (`Re
 **Resultado do Teste / Test Result:** 
 A requisição efetuada via `curl` sem o token de autorização JWT para o `httpbin-service` foi interceptada e rejeitada com o payload de 19 bytes (`Jwt is missing`) pelo Envoy Sidecar do Istio.
 *The request issued via `curl` without the JWT authorization token to `httpbin-service` was intercepted and rejected with a 19-byte payload (`Jwt is missing`) by Istio's Envoy Sidecar.*
+---
+
+## 🚀 Fase 11: Script de Automação de Testes JWT (HTTP 200 OK Validation)
+**Phase 11: JWT Automation Testing Script (HTTP 200 OK Validation)**
+
+**Objetivo / Objective:** 
+Automação do fluxo de obtenção do token JWT no Keycloak e validação da requisição autorizada (`Authorization: Bearer`) no Istio Service Mesh.
+*Automation of Keycloak JWT access token retrieval and authorized request validation (`Authorization: Bearer`) in Istio Service Mesh.*
+
+### 📂 Arquivos Criados / Files Created:
+- `scripts/test-jwt-auth.sh`: Script Bash automatizado para validação do fluxo Zero Trust (`HTTP/1.1 200 OK`).
