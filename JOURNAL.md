@@ -69,3 +69,11 @@ Automação do fluxo de obtenção do token JWT no Keycloak e validação da req
 
 ### 📂 Arquivos Criados / Files Created:
 - `scripts/test-jwt-auth.sh`: Script Bash automatizado para validação do fluxo Zero Trust (`HTTP/1.1 200 OK`).
+---
+
+## 🛠️ Ajuste de Repositório: Git Remote Sync & Push Confirmation
+**Repository Adjustment: Git Remote Sync & Push Confirmation**
+
+**Status / Outcome:** 
+Reconfigurada a URL remota `origin` apontando para o repositório pré-existente no GitHub (`julianosoaresdantas/enterprise-crossplane-gitops-mesh`) e sincronizados todos os commits e scripts de automação.
+*Reconfigured `origin` remote URL pointing to the existing GitHub repository (`julianosoaresdantas/enterprise-crossplane-gitops-mesh`) and synced all pending commits and automation scripts.*
