@@ -8,9 +8,19 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://codecentric.github.io/helm-charts'
+    repoURL: 'https://charts.bitnami.com/bitnami'
     chart: keycloak
-    targetRevision: 18.4.4
+    targetRevision: 21.6.0
+    helm:
+      parameters:
+        - name: auth.adminUser
+          value: admin
+        - name: auth.adminPassword
+          value: admin12345
+        - name: production
+          value: "false"
+        - name: http.relativePath
+          value: "/"
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: keycloak
