@@ -1,0 +1,21 @@
+apiVersion: security.istio.io/v1beta1
+kind: RequestAuthentication
+metadata:
+  name: jwt-auth
+  namespace: production-mesh
+spec:
+  jwtRules:
+  - issuer: "http://keycloak-idp.keycloak.svc.cluster.local/realms/master"
+    jwksUri: "http://keycloak-idp.keycloak.svc.cluster.local/realms/master/protocol/openid-connect/certs"
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: require-jwt
+  namespace: production-mesh
+spec:
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        requestPrincipals: ["http://keycloak-idp.keycloak.svc.cluster.local/realms/master/*"]
